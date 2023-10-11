@@ -1,15 +1,18 @@
 import javax.swing.*;
 public class Runner{
     public Runner(){
+        //
         VirtualPet v = new VirtualPet();
         v.exercise();
         takeABeat(1000);
         v.feed();
-        String ans = getAnswer("How are you?");
+        String ans = getResponse("How are you?");
         if(ans.equalsIgnoreCase("Good")){
-
+            v.feed();
         }
+        v.working();
     }
+
 
     public void takeABeat(int milliseconds){
         try {
@@ -19,12 +22,15 @@ public class Runner{
         }
     }
 
-    String s = (String)JOptionPane.showInputDialog(
+    public String getResponse(String q){
+        String s = (String)JOptionPane.showInputDialog(
                     new JFrame(),
-                    "Your Message",
-                    "Your Title",
+                    q,
+                    "Get a Response",
                     JOptionPane.PLAIN_MESSAGE
-    );
+        );
+        return s;
+    }
 
     public static void main(String[] args){
         new Runner();

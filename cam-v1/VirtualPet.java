@@ -15,6 +15,9 @@ public class VirtualPet {
         face.setMessage("Hello.");
     }
     
+    public void working() {
+        face.setImage("working");
+    }
     public void feed() {
         if (hunger > 10) {
             hunger = hunger - 10;

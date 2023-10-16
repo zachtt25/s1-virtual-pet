@@ -7,6 +7,7 @@ public class VirtualPet {
     
     VirtualPetFace face;
     int hunger = 0;   // how hungry the pet is.
+    int bodyTemp = 96;
     
     // constructor
     public VirtualPet() {
@@ -14,10 +15,27 @@ public class VirtualPet {
         face.setImage("normal");
         face.setMessage("Hello.");
     }
-    
-    public void working() {
-        face.setImage("working");
+
+    public void plead(){
+        face.setMessage("Please say yes?")
     }
+    
+    public void verysick() {
+        bodyTemp = bodyTemp + 5;
+        face.setImage("verysick");
+        face.setMessage("I have a fever, my body temp is " + bodyTemp);
+    }
+
+    public void medicine() {
+        if (bodyTemp >= 101) {
+            bodyTemp = bodyTemp - 5;
+        } else {
+            bodyTemp = 96;
+        }
+        face.setMessage("I'm feeling better now, thanks");
+        face.setImage("normal");
+    }
+
     public void feed() {
         if (hunger > 10) {
             hunger = hunger - 10;
